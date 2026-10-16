@@ -1,0 +1,1070 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     44144,       1060]
+NotebookOptionsPosition[     43781,       1046]
+NotebookOutlinePosition[     44183,       1062]
+CellTagsIndexPosition[     44140,       1059]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Lambda]$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:540d\:79f0\:672a\:5b9a\:7fa9\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Lambda]$$], 1}, 0.9, 1.5, ControlType -> 
+      Manipulator}}, Typeset`size$$ = {
+    450., {193.77712570501834`, 199.50905929876834`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Lambda]$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`p$, $CellContext`\[Mu]$, $CellContext`var$, \
+$CellContext`l$, $CellContext`gammaf$, $CellContext`llist$, \
+$CellContext`stabledistribution$, $CellContext`survivalcurveFig$, \
+$CellContext`stabledistributionFig$}, $CellContext`p$ = 
+         3; $CellContext`\[Mu]$ = 4; $CellContext`var$ = 1; $CellContext`l$[
+           Pattern[$CellContext`t, 
+            Blank[]], 
+           Pattern[$CellContext`p, 
+            Blank[]]] := 
+         Exp[-(7^(1/$CellContext`p) (20.^(-$CellContext`p))^(
+               1/$CellContext`p) $CellContext`t)^$CellContext`p]; \
+$CellContext`gammaf$[
+           Pattern[$CellContext`t, 
+            Blank[]], 
+           Pattern[$CellContext`\[Mu], 
+            Blank[]], 
+           Pattern[$CellContext`var, 
+            Blank[]]] := PDF[
+           
+           GammaDistribution[$CellContext`\[Mu]^2/$CellContext`var, \
+$CellContext`var/$CellContext`\[Mu]], $CellContext`t]; $CellContext`llist$ = 
+         Table[
+           $CellContext`l$[$CellContext`t, $CellContext`p$], {$CellContext`t, 
+            0, 20}]; $CellContext`stabledistribution$ = 
+         Table[$CellContext`\[Lambda]$$^(-($CellContext`i - 1)) 
+           Part[$CellContext`llist$, $CellContext`i], {$CellContext`i, 1, 
+            Length[$CellContext`llist$]}]; $CellContext`survivalcurveFig$ = 
+         BarChart[$CellContext`llist$, ChartStyle -> {
+             Darker[Red]}, 
+           ImageSize -> {450}]; $CellContext`stabledistributionFig$ = 
+         BarChart[$CellContext`stabledistribution$, ChartStyle -> {Pink}, 
+           ImageSize -> {450}]; Column[{
+           Row[{
+             Style[
+             "   Population increasing rate\:ff1a\[Lambda] = ", 18, 
+              FontFamily -> "Times"], 
+             Style[
+              NumberForm[$CellContext`\[Lambda]$$, {4, 3}], 18]}], 
+           If[$CellContext`\[Lambda]$$ <= 1, 
+            
+            Show[$CellContext`stabledistributionFig$, \
+$CellContext`survivalcurveFig$, AspectRatio -> 0.75, 
+             If[$CellContext`\[Lambda]$$ == 1, Epilog -> {
+                Text[
+                 Style[
+                  Darker[Red]], {13.5, 0.95}], 
+                Text[
+                 Style[
+                 "\!\(\*SubscriptBox[StyleBox[\"l\",FontSlant->\"Italic\"], \
+StyleBox[\"x\",FontSlant->\"Italic\"]]\), \
+\!\(\*SubscriptBox[StyleBox[\"l\",FontSlant->\"Italic\"], \
+StyleBox[\"x\",FontSlant->\"Italic\"]]\)\!\(\*SuperscriptBox[\(\[Lambda]\), \
+\(-x\)]\)", 20, FontFamily -> "Times"], {18, 0.95}]}, Epilog -> {
+                Text[
+                 Style[
+                  Darker[Red]], {16, 0.95}], 
+                Text[
+                 Style[
+                 "  \!\(\*SubscriptBox[StyleBox[\"l\",FontSlant->\"Italic\"], \
+StyleBox[\"x\",FontSlant->\"Italic\"]]\)", 20, FontFamily -> "Times"], {
+                 18, 0.95}], 
+                Text[
+                 Style[Pink], {16, 0.85}], 
+                Text[
+                 Style[
+                 "\!\(\*SubscriptBox[StyleBox[\"l\",FontSlant->\"Italic\"], \
+StyleBox[\"x\",FontSlant->\"Italic\"]]\)\!\(\*SuperscriptBox[\(\[Lambda]\), \
+\(-x\)]\)", 20, FontFamily -> "Times"], {19, 0.85}]}]], 
+            
+            Show[$CellContext`survivalcurveFig$, \
+$CellContext`stabledistributionFig$, AspectRatio -> 0.75, Epilog -> {
+               Text[
+                Style[
+                 Darker[Red]], {16, 0.95}], 
+               Text[
+                Style[
+                "  \!\(\*SubscriptBox[StyleBox[\"l\",FontSlant->\"Italic\"], \
+StyleBox[\"x\",FontSlant->\"Italic\"]]\)", 20, FontFamily -> "Times"], {
+                18, 0.95}], 
+               Text[
+                Style[Pink], {16, 0.85}], 
+               Text[
+                Style[
+                "\!\(\*SubscriptBox[StyleBox[\"l\",FontSlant->\"Italic\"], \
+StyleBox[\"x\",FontSlant->\"Italic\"]]\)\!\(\*SuperscriptBox[\(\[Lambda]\), \
+\(-x\)]\)", 20, FontFamily -> "Times"], {19, 0.85}]}]], 
+           Style["\n \[Copyright] Kinya Nishimura", 12]}]], 
+      "Specifications" :> {{{$CellContext`\[Lambda]$$, 1}, 0.9, 1.5}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{499.1, {241.4475511200574, 247.1794847138074}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`p = 3, $CellContext`\[Mu] = 
+       4, $CellContext`var = 1, $CellContext`gammaf[
+         Pattern[$CellContext`t, 
+          Blank[]], 
+         Pattern[$CellContext`\[Mu], 
+          Blank[]], 
+         Pattern[$CellContext`var, 
+          Blank[]]] := PDF[
+         GammaDistribution[$CellContext`\[Mu]^2/$CellContext`var, \
+$CellContext`var/$CellContext`\[Mu]], $CellContext`t], $CellContext`llist = {
+        1., 0.9991253827008708, 0.9930244429332351, 0.976651885552739, 
+        0.9455391358903963, 0.8963942066351503, 0.8277865066947335, 
+        0.7407256241915338, 0.6389046840319161, 0.5284141118153045, 
+        0.4168620196785082, 0.31203965496571284`, 0.2204685995290158, 
+        0.14625918374559624`, 0.09062728067998371, 0.052176399666308285`, 
+        0.027764418170768353`, 0.013583832230664164`, 0.006078483733763829, 
+        0.0024747274753347454`, 
+        0.000911881965554513}, $CellContext`stabledistribution = {1., 
+        0.8360881863605613, 0.6953830940867528, 0.572316249783046, 
+        0.4636688153924237, 0.36784047490010013`, 0.28425683176099364`, 
+        0.21285410570828292`, 0.1536359427955362, 0.106331823029429, 
+        0.07019614711665273, 0.043970644454158575`, 0.025997517543851982`, 
+        0.014432460470071984`, 0.007483560516513611, 0.0036054172217542227`, 
+        0.0016054696214966445`, 0.0006573064883558003, 0.0002461347674435206, 
+        0.00008385658645891991, 
+        0.00002585714203189349}, $CellContext`survivalcurveFig = Graphics[{{
+           Opacity[0], 
+           
+           Point[{{0.18067978533094814`, 0.}, {21.403192514104855`, 
+            0.}}]}, {{}, {
+            Directive[
+             RGBColor[1., 0.78, 0.2], 
+             EdgeForm[
+              Directive[
+               Thickness[Small], 
+               Opacity[0.5529999999999999], 
+               GrayLevel[0]]]], {{
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{0.5968074858951424, 0.}, {1.4031925141048576`, 
+                  1.}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 1.], 
+               Style[1., {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{1.5968074858951424`, 0.}, {2.4031925141048576`, 
+                  0.9991253827008708}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.9991253827008708], 
+               Style[0.9991253827008708, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{2.5968074858951424`, 0.}, {3.4031925141048576`, 
+                  0.9930244429332351}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.9930244429332351], 
+               Style[0.9930244429332351, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{3.5968074858951424`, 0.}, {4.403192514104857, 
+                  0.976651885552739}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.976651885552739], 
+               Style[0.976651885552739, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{4.596807485895142, 0.}, {5.403192514104857, 
+                  0.9455391358903963}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.9455391358903963], 
+               Style[0.9455391358903963, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{5.596807485895142, 0.}, {6.403192514104857, 
+                  0.8963942066351503}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.8963942066351503], 
+               Style[0.8963942066351503, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{6.596807485895142, 0.}, {7.403192514104857, 
+                  0.8277865066947335}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.8277865066947335], 
+               Style[0.8277865066947335, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{7.596807485895142, 0.}, {8.403192514104857, 
+                  0.7407256241915338}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.7407256241915338], 
+               Style[0.7407256241915338, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{8.596807485895141, 0.}, {9.403192514104855, 
+                  0.6389046840319161}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.6389046840319161], 
+               Style[0.6389046840319161, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{9.59680748589514, 0.}, {10.403192514104855`, 
+                  0.5284141118153045}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.5284141118153045], 
+               Style[0.5284141118153045, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{10.59680748589514, 0.}, {11.403192514104855`, 
+                  0.4168620196785082}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.4168620196785082], 
+               Style[0.4168620196785082, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{11.59680748589514, 0.}, {12.403192514104855`, 
+                  0.31203965496571284`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.31203965496571284`], 
+               Style[0.31203965496571284`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{12.59680748589514, 0.}, {13.403192514104855`, 
+                  0.2204685995290158}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.2204685995290158], 
+               Style[0.2204685995290158, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{13.59680748589514, 0.}, {14.403192514104855`, 
+                  0.14625918374559624`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.14625918374559624`], 
+               Style[0.14625918374559624`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{14.59680748589514, 0.}, {15.403192514104855`, 
+                  0.09062728067998371}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.09062728067998371], 
+               Style[0.09062728067998371, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{15.59680748589514, 0.}, {16.403192514104855`, 
+                  0.052176399666308285`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.052176399666308285`], 
+               Style[0.052176399666308285`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{16.59680748589514, 0.}, {17.403192514104855`, 
+                  0.027764418170768353`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.027764418170768353`], 
+               Style[0.027764418170768353`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{17.59680748589514, 0.}, {18.403192514104855`, 
+                  0.013583832230664164`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.013583832230664164`], 
+               Style[0.013583832230664164`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{18.59680748589514, 0.}, {19.403192514104855`, 
+                  0.006078483733763829}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.006078483733763829], 
+               Style[0.006078483733763829, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{19.59680748589514, 0.}, {20.403192514104855`, 
+                  0.0024747274753347454`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.0024747274753347454`], 
+               Style[0.0024747274753347454`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[2/3, 0, 0]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{20.59680748589514, 0.}, {21.403192514104855`, 
+                  0.000911881965554513}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.000911881965554513], 
+               Style[0.000911881965554513, {}]]}}}, {}, {}}, {}, {}, {}, {}, {
+          
+           Style[{Antialiasing -> False, {
+              Directive[
+               Thickness[Tiny]], {
+               Line[{{0.18067978533094814`, 0.}, {21.82764276868033, 0.}}]}, 
+              Style[{}, "GraphicsLabel"]}, 
+             Style[{{
+                Directive[
+                 Thickness[Tiny]], 
+                Line[{{0.5968074858951424, 0.}, 
+                  
+                  Offset[{-1.102182119232618*^-15, -6.}, {0.5968074858951424, 
+                   0.}]}], 
+                Line[{{21.403192514104852`, 0.}, 
+                  
+                  Offset[{-1.102182119232618*^-15, -6.}, {21.403192514104852`,
+                    0.}]}], {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}}, 
+               Style[{}, "GraphicsLabel"]}, "GraphicsTicks"]}, 
+            "GraphicsAxes"]}}, {
+         DisplayFunction -> Identity, PlotInteractivity :> $PlotInteractivity,
+           DefaultBaseStyle -> {"PlotGraphics", "Graphics"}, AspectRatio -> 
+          GoldenRatio^(-1), Axes -> {False, True}, AxesLabel -> {None, None}, 
+          AxesOrigin -> {0.18067978533094814`, 0.}, 
+          CoordinatesToolOptions -> {"DisplayFunction" -> ({
+              Identity[
+               Part[#, 1]], 
+              Identity[
+               Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+              Identity[
+               Part[#, 1]], 
+              Identity[
+               Part[#, 2]]}& )}, FrameLabel -> {{None, None}, {None, None}}, 
+          FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+          GridLines -> {None, None}, GridLinesStyle -> Directive[
+            GrayLevel[0.5, 0.4]], ImageSize -> {450}, 
+          PlotRange -> {{All, All}, {All, All}}, PlotRangePadding -> {{
+             Scaled[0.02], 
+             Scaled[0.02]}, {
+             Scaled[0.02], 
+             Scaled[0.05]}}, 
+          Ticks -> {None, Automatic}}], $CellContext`stabledistributionFig = 
+       Graphics[{{
+           Opacity[0], 
+           
+           Point[{{0.18067978533094814`, 0.}, {21.403192514104855`, 
+            0.}}]}, {{}, {
+            Directive[
+             RGBColor[1., 0.78, 0.2], 
+             EdgeForm[
+              Directive[
+               Thickness[Small], 
+               Opacity[0.5529999999999999], 
+               GrayLevel[0]]]], {{
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{0.5968074858951424, 0.}, {1.4031925141048576`, 
+                  1.}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 1.], 
+               Style[1., {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{1.5968074858951424`, 0.}, {2.4031925141048576`, 
+                  0.8360881863605613}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.8360881863605613], 
+               Style[0.8360881863605613, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{2.5968074858951424`, 0.}, {3.4031925141048576`, 
+                  0.6953830940867528}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.6953830940867528], 
+               Style[0.6953830940867528, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{3.5968074858951424`, 0.}, {4.403192514104857, 
+                  0.572316249783046}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.572316249783046], 
+               Style[0.572316249783046, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{4.596807485895142, 0.}, {5.403192514104857, 
+                  0.4636688153924237}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.4636688153924237], 
+               Style[0.4636688153924237, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{5.596807485895142, 0.}, {6.403192514104857, 
+                  0.36784047490010013`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.36784047490010013`], 
+               Style[0.36784047490010013`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{6.596807485895142, 0.}, {7.403192514104857, 
+                  0.28425683176099364`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.28425683176099364`], 
+               Style[0.28425683176099364`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{7.596807485895142, 0.}, {8.403192514104857, 
+                  0.21285410570828292`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.21285410570828292`], 
+               Style[0.21285410570828292`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{8.596807485895141, 0.}, {9.403192514104855, 
+                  0.1536359427955362}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.1536359427955362], 
+               Style[0.1536359427955362, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{9.59680748589514, 0.}, {10.403192514104855`, 
+                  0.106331823029429}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.106331823029429], 
+               Style[0.106331823029429, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{10.59680748589514, 0.}, {11.403192514104855`, 
+                  0.07019614711665273}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.07019614711665273], 
+               Style[0.07019614711665273, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{11.59680748589514, 0.}, {12.403192514104855`, 
+                  0.043970644454158575`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.043970644454158575`], 
+               Style[0.043970644454158575`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{12.59680748589514, 0.}, {13.403192514104855`, 
+                  0.025997517543851982`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.025997517543851982`], 
+               Style[0.025997517543851982`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{13.59680748589514, 0.}, {14.403192514104855`, 
+                  0.014432460470071984`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.014432460470071984`], 
+               Style[0.014432460470071984`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{14.59680748589514, 0.}, {15.403192514104855`, 
+                  0.007483560516513611}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.007483560516513611], 
+               Style[0.007483560516513611, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{15.59680748589514, 0.}, {16.403192514104855`, 
+                  0.0036054172217542227`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.0036054172217542227`], 
+               Style[0.0036054172217542227`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{16.59680748589514, 0.}, {17.403192514104855`, 
+                  0.0016054696214966445`}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.0016054696214966445`], 
+               Style[0.0016054696214966445`, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{17.59680748589514, 0.}, {18.403192514104855`, 
+                  0.0006573064883558003}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.0006573064883558003], 
+               Style[0.0006573064883558003, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{18.59680748589514, 0.}, {19.403192514104855`, 
+                  0.0002461347674435206}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.0002461347674435206], 
+               Style[0.0002461347674435206, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{19.59680748589514, 0.}, {20.403192514104855`, 
+                  0.00008385658645891991}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.00008385658645891991], 
+               Style[0.00008385658645891991, {}]]}, {
+              Directive[
+               EdgeForm[
+                Directive[
+                 Thickness[Small], 
+                 Opacity[0.5529999999999999], 
+                 GrayLevel[0]]], 
+               RGBColor[1, 0.5, 0.5]], 
+              Tooltip[
+               StatusArea[
+                Charting`DelayedMouseEffect[
+                 
+                 Rectangle[{20.59680748589514, 0.}, {21.403192514104855`, 
+                  0.00002585714203189349}, "RoundingRadius" -> 0], {"Style", 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}]}], 0.00002585714203189349], 
+               Style[
+               0.00002585714203189349, {}]]}}}, {}, {}}, {}, {}, {}, {}, {
+           Style[{Antialiasing -> False, {
+              Directive[
+               Thickness[Tiny]], {
+               Line[{{0.18067978533094814`, 0.}, {21.82764276868033, 0.}}]}, 
+              Style[{}, "GraphicsLabel"]}, 
+             Style[{{
+                Directive[
+                 Thickness[Tiny]], 
+                Line[{{0.5968074858951424, 0.}, 
+                  
+                  Offset[{-1.102182119232618*^-15, -6.}, {0.5968074858951424, 
+                   0.}]}], 
+                Line[{{21.403192514104852`, 0.}, 
+                  
+                  Offset[{-1.102182119232618*^-15, -6.}, {21.403192514104852`,
+                    0.}]}], {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}}, 
+               Style[{}, "GraphicsLabel"]}, "GraphicsTicks"]}, 
+            "GraphicsAxes"]}}, {
+         DisplayFunction -> Identity, PlotInteractivity :> $PlotInteractivity,
+           DefaultBaseStyle -> {"PlotGraphics", "Graphics"}, AspectRatio -> 
+          GoldenRatio^(-1), Axes -> {False, True}, AxesLabel -> {None, None}, 
+          AxesOrigin -> {0.18067978533094814`, 0.}, 
+          CoordinatesToolOptions -> {"DisplayFunction" -> ({
+              Identity[
+               Part[#, 1]], 
+              Identity[
+               Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+              Identity[
+               Part[#, 1]], 
+              Identity[
+               Part[#, 2]]}& )}, FrameLabel -> {{None, None}, {None, None}}, 
+          FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+          GridLines -> {None, None}, GridLinesStyle -> Directive[
+            GrayLevel[0.5, 0.4]], ImageSize -> {450}, 
+          PlotRange -> {{All, All}, {All, All}}, PlotRangePadding -> {{
+             Scaled[0.02], 
+             Scaled[0.02]}, {
+             Scaled[0.02], 
+             Scaled[0.05]}}, Ticks -> {None, Automatic}}], $CellContext`i = 
+       1}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.6849846235820103`*^9, 3.684984708308392*^9}, {
+   3.684984805323265*^9, 3.6849848711088667`*^9}, 3.684984903625617*^9, 
+   3.686999417781766*^9, 3.6869994710661983`*^9, 3.686999504971321*^9, 
+   3.686999540195037*^9, 3.686999573175289*^9, 3.686999615535536*^9, 
+   3.686999660519253*^9, {3.686999697451495*^9, 3.686999757375039*^9}, {
+   3.6869998030001783`*^9, 3.6869998280117903`*^9}, {3.808799547973648*^9, 
+   3.808799559522152*^9}, {3.808799599591772*^9, 3.80879967490397*^9}, {
+   3.8087997138786373`*^9, 3.808799733131978*^9}, {3.808799765072817*^9, 
+   3.8087997796918373`*^9}, 3.808799813915794*^9, {3.8087998706168957`*^9, 
+   3.808799888684572*^9}, 3.809510866523695*^9, {3.809510898973372*^9, 
+   3.8095109711024637`*^9}, 3.9052448009498568`*^9, {3.905244855453868*^9, 
+   3.90524490543438*^9}, 3.905244938096681*^9, 3.905244972152782*^9, {
+   3.905245024112235*^9, 3.9052450490689993`*^9}, 3.905245146420863*^9, 
+   3.968006480127616*^9, 3.968006938030554*^9},
+ CellLabel->"Out[29]=",ExpressionUUID->"2ebb66dd-6554-4e28-b4ab-7fe1b2aac80e"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (2025\:5e747\:67088\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4a441bd5-9229-4a8b-b661-79dee06ff700"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 43223, 1024, 505, "Output",ExpressionUUID->"2ebb66dd-6554-4e28-b4ab-7fe1b2aac80e"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
