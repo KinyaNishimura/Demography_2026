@@ -1,0 +1,536 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22228,        528]
+NotebookOptionsPosition[     21733,        511]
+NotebookOutlinePosition[     22140,        527]
+CellTagsIndexPosition[     22097,        524]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\n", " ", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "parameterlist", ",", " ", "parametes", ",", " ", "p", ",", " ", 
+       "\[Lambda]", ",", " ", "fig1", ",", " ", "fig2", ",", " ", "fig3", ",",
+        " ", "lifetime", ",", " ", "\n", "   ", "expectlife", ",", " ", 
+       "testtext"}], "}"}], ",", "\n", "  ", "\n", "  ", 
+     RowBox[{
+      RowBox[{"parameterlist", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0.9", ",", " ", "0.05456820264078853`"}], "}"}], ",", " ", 
+         
+         RowBox[{"{", 
+          RowBox[{"1", ",", " ", "\n", "     ", "0.04605"}], "}"}], ",", " ", 
+         
+         RowBox[{"{", 
+          RowBox[{"4", ",", " ", 
+           RowBox[{"-", "0.014649"}]}], "}"}]}], "}"}]}], ";", "\n", "  ", 
+      RowBox[{"parametes", " ", "=", " ", 
+       RowBox[{"Which", "[", "\n", "    ", 
+        RowBox[{
+         RowBox[{"type", " ", "==", " ", "3"}], ",", " ", 
+         RowBox[{"parameterlist", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", "\n", "    ", 
+         RowBox[{"type", " ", "==", " ", "2"}], ",", " ", 
+         RowBox[{"parameterlist", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", "\n", "    ", 
+         RowBox[{"type", " ", "==", " ", "1"}], ",", " ", 
+         RowBox[{"parameterlist", "[", 
+          RowBox[{"[", "3", "]"}], "]"}]}], "\n", "    ", "]"}]}], ";", "\n", 
+      "  ", 
+      RowBox[{"p", " ", "=", " ", 
+       RowBox[{"parametes", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", "\n", "  ", 
+      RowBox[{"\[Lambda]", " ", "=", " ", 
+       RowBox[{"parametes", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], ";", "\n", "  ", "\n", "  ", 
+      RowBox[{"fig1", " ", "=", " ", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Exp", "[", 
+          RowBox[{"-", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Lambda]", " ", "t"}], ")"}], "^", "p"}]}], "]"}], ",",
+          " ", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", " ", "0.0001", ",", " ", "age"}], "}"}], ",", 
+         "\n", "    ", 
+         RowBox[{"PlotRange", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "120"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"GrayLevel", "[", 
+             RowBox[{".6", ",", " ", ".5"}], "]"}], ",", " ", 
+            RowBox[{"Thickness", "[", "0.015", "]"}]}], "}"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"Filling", " ", "->", " ", "Bottom"}], ",", "\n", "    ", 
+         RowBox[{"AxesOrigin", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", " ", "0"}], "}"}]}], ",", "\n", "    ", 
+         RowBox[{"Frame", " ", "->", " ", "True"}], ",", " ", 
+         RowBox[{"FrameTicks", " ", "->", " ", "True"}], ",", "\n", "    ", 
+         RowBox[{"FrameStyle", " ", "->", " ", 
+          RowBox[{"Thickness", "[", "0.004", "]"}]}], ",", "\n", "    ", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             
+             RowBox[{"\"\<Age (\!\(\*StyleBox[\"x\",FontSlant->\"Italic\"]\))\
+\>\"", ",", "Italic", ",", "18"}], "]"}], ",", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<l(x)\>\"", ",", "30", ",", "Italic", ",", 
+              RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}]}], 
+           "}"}]}], ",", "\n", "    ", 
+         RowBox[{"LabelStyle", " ", "->", " ", 
+          RowBox[{"Directive", "[", "18", "]"}]}], ",", " ", 
+         RowBox[{"AspectRatio", " ", "->", " ", "0.8"}], ",", "\n", "    ", 
+         RowBox[{"ImageSize", " ", "->", " ", 
+          RowBox[{"{", "400", "}"}]}]}], "\n", "    ", "]"}]}], ";", "\n", 
+      "  ", "\n", "  ", 
+      RowBox[{"fig2", " ", "=", " ", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Exp", "[", 
+          RowBox[{"-", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Lambda]", " ", "t"}], ")"}], "^", "p"}]}], "]"}], ",",
+          " ", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", " ", "age", ",", " ", "120"}], "}"}], ",", "\n", 
+         "    ", 
+         RowBox[{"PlotRange", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "120"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", " ", 
+            RowBox[{"Thickness", "[", "0.02", "]"}]}], "}"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"Filling", " ", "->", " ", "Bottom"}]}], "]"}]}], ";", "\n", 
+      "  ", "\n", "  ", 
+      RowBox[{"fig3", " ", "=", " ", 
+       RowBox[{"Plot", "[", "\n", "    ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Exp", "[", 
+           RowBox[{"-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"\[Lambda]", " ", "t"}], ")"}], "^", "p"}]}], "]"}], "/", 
+          RowBox[{"Exp", "[", 
+           RowBox[{"-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"\[Lambda]", " ", "age"}], ")"}], "^", "p"}]}], "]"}]}],
+          ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", " ", "age", ",", " ", "120"}], "}"}], ",", "\n", 
+         "    ", 
+         RowBox[{"PlotRange", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "120"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"PlotStyle", " ", "->", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Darker", "[", 
+             RowBox[{
+              RowBox[{"Hue", "[", "1", "]"}], ",", " ", ".4"}], "]"}], ",", 
+            " ", 
+            RowBox[{"Thickness", "[", "0.02", "]"}]}], "}"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"Filling", " ", "->", " ", "Bottom"}]}], "\n", "    ", 
+        "]"}]}], ";", "\n", "  ", "\n", "  ", 
+      RowBox[{"lifetime", " ", "=", " ", "\n", "   ", 
+       RowBox[{"Text", "@", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            
+            RowBox[{"\"\<Life expectancy\\n             at birth\:ff1a\>\"", ",",
+              " ", "16"}], "]"}], ",", " ", "\n", "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"TraditionalForm", "[", 
+              RowBox[{
+               SubsuperscriptBox["\[Integral]", "0", "\[Infinity]"], 
+               RowBox[{
+                RowBox[{"l", "[", "x", "]"}], 
+                RowBox[{"\[DifferentialD]", "x"}]}]}], "]"}], ",", " ", "22", 
+             ",", " ", 
+             RowBox[{"FontFamily", " ", "->", " ", "\"\<Times\>\""}]}], "]"}],
+            ",", " ", "\n", "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\< = \>\"", ",", " ", "20"}], "]"}], ",", " ", "\n", 
+           "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"NIntegrate", "[", 
+              RowBox[{
+               RowBox[{"Exp", "[", 
+                RowBox[{"-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"\[Lambda]", " ", "tt"}], ")"}], "^", "p"}]}], 
+                "]"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"tt", ",", " ", "0", ",", " ", "\[Infinity]"}], 
+                "}"}]}], "]"}], ",", " ", "\n", "       ", "20"}], "]"}]}], 
+          "}"}], "]"}]}]}], ";", "\n", "  ", "\n", "  ", 
+      RowBox[{"expectlife", " ", "=", " ", "\n", "   ", 
+       RowBox[{"Text", "@", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            
+            RowBox[{"\"\<Life expectancy\\n             at age-\>\"", ",", 
+             " ", "16"}], "]"}], ",", " ", "\n", "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"TraditionalForm", "[", "age", "]"}], ",", " ", "18", ",",
+              " ", 
+             RowBox[{"FontFamily", " ", "->", " ", "\"\<Times\>\""}]}], "]"}],
+            ",", " ", "\n", "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<  : \>\"", ",", " ", "16"}], "]"}], ",", " ", "\n", 
+           "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"TraditionalForm", "[", 
+              RowBox[{
+               SubsuperscriptBox["\[Integral]", "age", "\[Infinity]"], 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"l", "[", "x", "]"}], "/", 
+                 RowBox[{"l", "[", "age", "]"}]}], 
+                RowBox[{"\[DifferentialD]", "x"}]}]}], "]"}], ",", " ", "22", 
+             ",", " ", 
+             RowBox[{"FontFamily", " ", "->", " ", "\"\<Times\>\""}]}], "]"}],
+            ",", " ", "\n", "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\< = \>\"", ",", " ", "20"}], "]"}], ",", " ", "\n", 
+           "      ", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Integrate", "[", "\n", "        ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Exp", "[", 
+                 RowBox[{"-", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"\[Lambda]", " ", "tt"}], ")"}], "^", "p"}]}], 
+                 "]"}], "/", 
+                RowBox[{"Exp", "[", 
+                 RowBox[{"-", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"\[Lambda]", " ", "age"}], ")"}], "^", "p"}]}], 
+                 "]"}]}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{
+                "tt", ",", " ", "\n", "         ", "age", ",", " ", 
+                 "\[Infinity]"}], "}"}]}], "]"}], ",", " ", "22"}], "]"}]}], 
+          "}"}], "]"}]}]}], ";", "\n", "  ", "\n", "  ", 
+      RowBox[{"testtext", " ", "=", " ", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Test\>\"", ",", " ", "30"}], "]"}]}], ";", "\n", "  ", 
+      "\n", "  ", 
+      RowBox[{"If", "[", "\n", "   ", 
+       RowBox[{
+        RowBox[{"true", " ", "==", " ", "False"}], ",", "\n", "   ", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", 
+          RowBox[{"lifetime", ",", " ", 
+           RowBox[{"Spacer", "[", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "95"}], "}"}], "]"}], ",", " ", 
+           RowBox[{"Show", "[", 
+            RowBox[{"fig1", ",", " ", "fig2"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            
+            RowBox[{"\"\<\\n    \[Copyright] Kinya Nishimura\>\"", ",", 
+             "12"}], "]"}]}], "}"}], "]"}], ",", "\n", "   ", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", 
+          RowBox[{"lifetime", ",", " ", 
+           RowBox[{"Spacer", "[", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "20"}], "}"}], "]"}], ",", " ", 
+           "expectlife", ",", " ", 
+           RowBox[{"Spacer", "[", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "28"}], "}"}], "]"}], ",", " ", "\n", 
+           "     ", 
+           RowBox[{"Show", "[", 
+            RowBox[{"fig1", ",", " ", "fig3"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            
+            RowBox[{"\"\<\\n    \[Copyright] Kinya Nishimura\>\"", ",", 
+             "12"}], "]"}]}], "}"}], "]"}]}], "\n", "   ", "]"}]}]}], "\n", 
+    "  ", "]"}], ",", "\n", " ", "\n", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"type", ",", " ", "1", ",", " ", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<Type\>\"", ",", " ", "14"}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", " ", "->", " ", "\"\<I\>\""}], ",", " ", 
+       RowBox[{"2", " ", "->", " ", "\"\<II\>\""}], ",", " ", 
+       RowBox[{"3", " ", "->", " ", "\"\<III\>\""}]}], "}"}]}], "}"}], ",", 
+   "\n", " ", 
+   RowBox[{"OpenerView", "[", 
+    RowBox[{"{", "\n", "   ", 
+     RowBox[{"\"\<\>\"", ",", "\n", "   ", 
+      RowBox[{"Column", "[", 
+       RowBox[{"{", "\n", "     ", 
+        RowBox[{
+         RowBox[{"Control", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"true", ",", " ", "False", ",", " ", 
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<at given age\>\"", ",", " ", "16"}], "]"}]}], 
+             "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"True", ",", " ", "False"}], "}"}]}], "}"}], "]"}], ",", 
+         "\n", "     ", 
+         RowBox[{"Control", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"age", ",", " ", "0", ",", " ", 
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Current Age\>\"", ",", " ", "16"}], "]"}]}], 
+             "}"}], ",", " ", "0", ",", " ", "100", ",", " ", "1"}], "}"}], 
+          "]"}]}], "\n", "     ", "}"}], "]"}]}], "\n", "   ", "}"}], "]"}], 
+   "\[IndentingNewLine]", ",", " ", 
+   RowBox[{"ControlPlacement", " ", "->", " ", "Right"}], 
+   "\[IndentingNewLine]", ",", 
+   RowBox[{"SaveDefinitions", "->", "True"}]}], "   ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"\:5927\:4e8b\:306a\:546a\:6587", "!!"}], " ", 
+     "\:30c7\:30fc\:30bf\:3092\:8aad\:307f\:8fbc\:3093\:3067\:5358\:72ec\:52d5\
+\:304f\:3088\:3046\:306b\:3059\:308b"}], "\:3002"}], "\:3000", "*)"}], "\n", 
+  " ", "]"}]], "Input",
+ CellChangeTimes->{{3.967451276595224*^9, 3.967451276597108*^9}, {
+   3.967451396347934*^9, 3.967451403390189*^9}, {3.9674514569527903`*^9, 
+   3.9674514814402742`*^9}, 3.967451894131544*^9, {3.967978351263565*^9, 
+   3.967978358358315*^9}},ExpressionUUID->"a1577ba9-b133-4a43-8ff5-\
+75ead7d0eb96"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`age$$ = 0, $CellContext`true$$ = 
+    False, $CellContext`type$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:540d\:79f0\:672a\:5b9a\:7fa9\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`type$$], 1, 
+       Style["Type", 14]}, {1 -> "I", 2 -> "II", 3 -> "III"}, ControlType -> 
+      SetterBar}, {{
+       Hold[$CellContext`true$$], False, 
+       Style["at given age", 16]}, {True, False}, ControlType -> Checkbox}, {{
+      
+       Hold[$CellContext`age$$], 0, 
+       Style["Current Age", 16]}, 0, 100, 1, ControlType -> Manipulator}, {
+      Hold[
+       OpenerView[{"", 
+         Column[{
+           Manipulate`Place[1], 
+           Manipulate`Place[2]}]}]], Manipulate`Dump`ThisIsNotAControl, 
+      ControlType -> None}}, Typeset`size$$ = {
+    400., {252.6580703125, 258.39000390625}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`age$$ = 0, $CellContext`true$$ = 
+        False, $CellContext`type$$ = 1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`parameterlist$, $CellContext`parametes$, \
+$CellContext`p$, $CellContext`\[Lambda]$, $CellContext`fig1$, \
+$CellContext`fig2$, $CellContext`fig3$, $CellContext`lifetime$, \
+$CellContext`expectlife$, $CellContext`testtext$}, \
+$CellContext`parameterlist$ = {{0.9, 0.05456820264078853}, {1, 0.04605}, {
+           4, -0.014649}}; $CellContext`parametes$ = 
+         Which[$CellContext`type$$ == 3, 
+           Part[$CellContext`parameterlist$, 1], $CellContext`type$$ == 2, 
+           Part[$CellContext`parameterlist$, 2], $CellContext`type$$ == 1, 
+           Part[$CellContext`parameterlist$, 3]]; $CellContext`p$ = 
+         Part[$CellContext`parametes$, 1]; $CellContext`\[Lambda]$ = 
+         Part[$CellContext`parametes$, 2]; $CellContext`fig1$ = Plot[
+           
+           Exp[-($CellContext`\[Lambda]$ $CellContext`t)^$CellContext`p$], \
+{$CellContext`t, 0.0001, $CellContext`age$$}, PlotRange -> {{0, 120}, {0, 1}},
+            PlotStyle -> {
+             GrayLevel[0.6, 0.5], 
+             Thickness[0.015]}, Filling -> Bottom, AxesOrigin -> {0, 0}, 
+           Frame -> True, FrameTicks -> True, FrameStyle -> Thickness[0.004], 
+           FrameLabel -> {
+             Style[
+             "Age (\!\(\*StyleBox[\"x\",FontSlant->\"Italic\"]\))", Italic, 
+              18], 
+             Style["l(x)", 30, Italic, FontFamily -> "Times"]}, LabelStyle -> 
+           Directive[18], AspectRatio -> 0.8, 
+           ImageSize -> {400}]; $CellContext`fig2$ = Plot[
+           
+           Exp[-($CellContext`\[Lambda]$ $CellContext`t)^$CellContext`p$], \
+{$CellContext`t, $CellContext`age$$, 120}, PlotRange -> {{0, 120}, {0, 1}}, 
+           PlotStyle -> {Red, 
+             Thickness[0.02]}, Filling -> Bottom]; $CellContext`fig3$ = 
+         Plot[Exp[-($CellContext`\[Lambda]$ $CellContext`t)^$CellContext`p$]/
+           Exp[-($CellContext`\[Lambda]$ \
+$CellContext`age$$)^$CellContext`p$], {$CellContext`t, $CellContext`age$$, 
+            120}, PlotRange -> {{0, 120}, {0, 1}}, PlotStyle -> {
+             Darker[
+              Hue[1], 0.4], 
+             Thickness[0.02]}, Filling -> Bottom]; $CellContext`lifetime$ = 
+         Text[
+           Row[{
+             Style["Life expectancy\n             at birth\:ff1a", 16], 
+             Style[
+              TraditionalForm[
+               Integrate[
+                $CellContext`l[$CellContext`x], {$CellContext`x, 0, 
+                 Infinity}]], 22, FontFamily -> "Times"], 
+             Style[" = ", 20], 
+             Style[
+              NIntegrate[
+               
+               Exp[-($CellContext`\[Lambda]$ \
+$CellContext`tt)^$CellContext`p$], {$CellContext`tt, 0, Infinity}], 
+              20]}]]; $CellContext`expectlife$ = Text[
+           Row[{
+             Style["Life expectancy\n             at age-", 16], 
+             Style[
+              TraditionalForm[$CellContext`age$$], 18, FontFamily -> "Times"], 
+             Style["  : ", 16], 
+             Style[
+              TraditionalForm[
+               
+               Integrate[$CellContext`l[$CellContext`x]/$CellContext`l[$\
+CellContext`age$$], {$CellContext`x, $CellContext`age$$, Infinity}]], 22, 
+              FontFamily -> "Times"], 
+             Style[" = ", 20], 
+             Style[
+              Integrate[
+              Exp[-($CellContext`\[Lambda]$ $CellContext`tt)^$CellContext`p$]/
+               Exp[-($CellContext`\[Lambda]$ \
+$CellContext`age$$)^$CellContext`p$], {$CellContext`tt, $CellContext`age$$, 
+                Infinity}], 22]}]]; $CellContext`testtext$ = 
+         Style["Test", 30]; If[$CellContext`true$$ == False, 
+          Column[{$CellContext`lifetime$, 
+            Spacer[{0, 95}], 
+            Show[$CellContext`fig1$, $CellContext`fig2$], 
+            Style["\n    \[Copyright] Kinya Nishimura", 12]}], 
+          Column[{$CellContext`lifetime$, 
+            Spacer[{0, 20}], $CellContext`expectlife$, 
+            Spacer[{0, 28}], 
+            Show[$CellContext`fig1$, $CellContext`fig3$], 
+            Style["\n    \[Copyright] Kinya Nishimura", 12]}]]], 
+      "Specifications" :> {{{$CellContext`type$$, 1, 
+          Style["Type", 14]}, {
+         1 -> "I", 2 -> "II", 3 -> "III"}}, {{$CellContext`true$$, False, 
+          Style["at given age", 16]}, {True, False}, ControlPlacement -> 
+         1}, {{$CellContext`age$$, 0, 
+          Style["Current Age", 16]}, 0, 100, 1, ControlPlacement -> 2}, 
+        OpenerView[{"", 
+          Column[{
+            Manipulate`Place[1], 
+            Manipulate`Place[2]}]}]}, 
+      "Options" :> {ControlPlacement -> Right}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      557.2971875000001, {283.4284957275391, 289.1604293212891}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.9674512786728497`*^9, {3.9674514626330442`*^9, 3.9674514836794863`*^9}, 
+   3.967451894873053*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"fd259cb6-b88d-46c5-85ca-47a8c270119d"]
+}, Open  ]]
+},
+WindowSize->{1394, 1193},
+WindowMargins->{{43, Automatic}, {Automatic, 170}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (2025\:5e747\:67088\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6c3ac8da-ceeb-419f-babd-bb576840d1db"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 14169, 342, 1651, "Input",ExpressionUUID->"a1577ba9-b133-4a43-8ff5-75ead7d0eb96"],
+Cell[14752, 366, 6965, 142, 589, "Output",ExpressionUUID->"fd259cb6-b88d-46c5-85ca-47a8c270119d"]
+}, Open  ]]
+}
+]
+*)
+
