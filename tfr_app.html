@@ -55,6 +55,13 @@
           border-radius: 12px; background: #f6efe8; border: 1px solid #d9c3ac; color: #5a3a1b; }
   .chip button { border: none; background: none; cursor: pointer; font-size: 14px; color: #5a3a1b;
                  padding: 0 4px; line-height: 1; }
+  .toggle { display: block; width: 100%; text-align: left; padding: 9px 12px; margin-top: 4px;
+            border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink);
+            font: inherit; font-size: 14px; cursor: pointer; }
+  .toggle .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px;
+                 background: #9a9993; vertical-align: middle; }
+  .toggle[aria-pressed="true"] { background: #fdeceb; border-color: #e34948; color: #a8221f; font-weight: 700; }
+  .toggle[aria-pressed="true"] .dot { background: #e34948; box-shadow: 0 0 0 1.5px #0b0b0b; }
   .hidden { display: none; }
   @media (max-width: 820px) {
     .wrap { flex-direction: column; padding: 8px 12px 16px; }
@@ -75,6 +82,10 @@
       <button class="btn" data-mode="b1">Button 1: dot size = population</button>
       <button class="btn" data-mode="b2">Button 2: by continent + year slider</button>
     </div>
+    <div id="startBox">
+      <hr>
+      <button type="button" id="jpToggle" class="toggle" aria-pressed="false"><span class="dot"></span><span id="jpLabel">Highlight Japan: Off</span></button>
+    </div>
     <div id="focusBox" class="hidden">
       <hr>
       <div class="focus-title">Highlight countries (on / off)</div>
@@ -89,6 +100,7 @@
     </div>
     <hr>
     <div class="hint">
+      ● On the Start screen all countries are grey. Click “Highlight Japan” to show Japan in red.<br>
       ● Hover over a dot to see the country and its figures.<br>
       ● In Buttons 0 and 1, hovering also shows that country's whole 1950–2023 path as a black line.<br>
       ● Type a name in “Find &amp; highlight a country” to highlight it with a brown line (× to remove).<br>
@@ -207,12 +219,12 @@ function baseLayout(title, xaxis, extraAnn = []) {
 }
 const CONFIG = { displaylogo: false, responsive: true };
 
-// (1) Start screen: simple jitter plot every 5 years. Only Japan in dark red
-function plot5yr() {
+// (1) Start screen: simple jitter plot every 5 years. All countries grey at first; jpOn=true highlights Japan in dark red
+function plot5yr(jpOn = false) {
   const yrs = YEARS.filter(y => (y % 5 === 0 && y <= 2020) || y === 2023);
   const base = { x: [], y: [], text: [] }, jp = { x: [], y: [], text: [] };
   for (const c of C) for (const y of yrs) {
-    const i = yi(y), o = c.c === JAPAN ? jp : base;
+    const i = yi(y), o = (jpOn && c.c === JAPAN) ? jp : base;
     o.x.push(y + c.jx * 1.6); o.y.push(c.t[i]); o.text.push(hover(c, i));
   }
   const data = [
@@ -221,6 +233,8 @@ function plot5yr() {
     Object.assign({ type: "scatter", mode: "markers", hoverinfo: "text",
       marker: { size: 13, color: "#e34948", line: { color: INK, width: 1.5 } } }, jp)
   ];
+  if (!jpOn) return { data: [data[0]], layout: baseLayout("TFR by country, every 5 years  ● one dot = one country",
+    { tickvals: yrs, ticktext: yrs.map(String), range: [1946, 2027] }) };
   const last = jp.x.length - 1;
   const ann = [{ x: jp.x[last], y: jp.y[last], text: "Japan", xanchor: "left", xshift: 10,
                  showarrow: false, font: { size: 14, color: "#e34948" } }];
@@ -383,6 +397,15 @@ function plotRegion(focus, startYear, extra = []) {
 // =============================================================================
 const plotDiv = document.getElementById("plot");
 let mode = "init", currentYear = YEARS[0];
+// "Highlight Japan" button (shown on the Start screen only). Each click switches it on/off
+let jpOn = false;
+const jpBtn = document.getElementById("jpToggle");
+jpBtn.addEventListener("click", () => {
+  jpOn = !jpOn;
+  jpBtn.setAttribute("aria-pressed", String(jpOn));
+  document.getElementById("jpLabel").textContent = jpOn ? "Highlight Japan: On" : "Highlight Japan: Off";
+  if (mode === "init") render();
+});
 
 // Build the country check boxes (only Japan ticked at start)
 const list = document.getElementById("focusList");
@@ -397,7 +420,8 @@ const focusNow = () => [...list.querySelectorAll("input:checked")].map(e => e.va
 function render() {
   document.querySelectorAll(".btn").forEach(b => b.classList.toggle("active", b.dataset.mode === mode));
   document.getElementById("focusBox").classList.toggle("hidden", mode === "init");
-  const fig = mode === "init" ? plot5yr()
+  document.getElementById("startBox").classList.toggle("hidden", mode !== "init");
+  const fig = mode === "init" ? plot5yr(jpOn)
             : mode === "b0"   ? plotAnnual(focusNow(), false, searched)
             : mode === "b1"   ? plotAnnual(focusNow(), true, searched)
             :                   plotRegion(focusNow(), currentYear, searched);
